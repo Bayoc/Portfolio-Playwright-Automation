@@ -37,7 +37,7 @@ A minor bug was identified regarding the handling of typos in product names.
 
 ## 📊 Test Summary Report (TSR)
 **Execution Date:** February 16, 2026  
-**Overall Result:** 🔴 FAILED (1 High-Priority and 1 Low-Priority defects remains open)
+**Overall Result:** 🔴 FAILED (1 High-Priority and 1 Medium-Priority defects remains open)
 
 * **Total Executed:** 8
 * **Pass:** 6
