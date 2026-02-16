@@ -23,6 +23,9 @@ I am an aspiring Manual QA Tester with a strong focus on ensuring software quali
 ### 🛒 E-commerce Manual Testing Project: Militaria.pl
 A comprehensive manual testing project focused on functional and usability aspects of a major Polish e-commerce platform.
 
+> [!IMPORTANT]
+> **[View Full Test Documentation (Google Sheets)](https://docs.google.com/spreadsheets/d/1_gszuUNTEtNfG3AQptmJbks0TZzhoaXkgLZSZ03MdS8/edit?gid=0#gid=0)** – Contains the Test Plan, Test Scenarios, and a complete suite of Test Cases.
+
 * **Objective:** To ensure a seamless user journey from product discovery to the final checkout process.
 * **Scope:** Functional testing, UI/UX analysis, Cross-browser testing, and Mobile responsiveness.
 * **Tools:** Jira (Bug Reporting), Chrome DevTools, Lighthouse (Performance).
