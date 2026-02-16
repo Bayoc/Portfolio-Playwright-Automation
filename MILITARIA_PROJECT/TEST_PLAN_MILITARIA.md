@@ -30,7 +30,7 @@ The purpose of this document is to outline the strategy and scope for manual tes
 * **Exit:** All planned test cases are executed. All "Critical" and "Major" bugs are documented and reported.
 
 ## 5. Tools ⚙️
-* **Management:** Jira / Trello.
+* **Management:** Jira.
 * **Documentation:**  Google Sheets.
 * **Debugging:** Chrome DevTools.
 * **API:** Postman.
