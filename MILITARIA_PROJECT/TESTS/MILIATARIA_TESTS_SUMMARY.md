@@ -9,15 +9,15 @@
 * **Environments:** Desktop (Windows/macOS), Mobile (Android/iOS via DevTools and physical devices).
 
 ## 2. Test Scope & Execution
-The project covered 5 comprehensive Test Scenarios (SC), ensuring full coverage of the "In Scope" requirements defined in the Test Plan:
+The project covered 5 core Test Scenarios (SC), ensuring full coverage of the "In Scope" requirements:
 
 | Scenario ID | Scope | Key Validations |
 | :--- | :--- | :--- |
-| **SC1 & SC2** | **Search Engine** | Search suggestions, keyword matching, and results page filtering. |
-| **SC3** | **Registration** | New account creation, form validation, and security (password masking). |
-| **SC4** | **Authentication** | Standard login, Social Login (Facebook/Google integration), and logout session termination. |
-| **SC5** | **Shopping Cart** | Price calculations, quantity management, and responsive UI/UX for mobile devices. |
-| **SC6** | **Checkout Process** | Delivery methods, payment selection, and transition to payment gateways. |
+| **SC1** | **Search Suggestions** | Verification of dropdown hints and visual feedback during typing. |
+| **SC2** | **Search Execution** | Validation of search results accuracy, filtering, and "no results found" logic. |
+| **SC3** | **User Registration** | New account creation, form validation, and security features. |
+| **SC4** | **Authentication** | Standard login, Social Login (Facebook/Google), and secure logout. |
+| **SC5** | **Cart & Checkout** | Price calculations, quantity management, mobile responsiveness, and delivery/payment selection. |
 
 ## 3. Executive Summary of Results
 * **Total Scenarios:** 5
