@@ -8,7 +8,7 @@
 
 ## 📝 Description
 The search engine fails to trigger the drop-down menu or display suggested 'Bennon' products when a user enters a search term containing special characters, 
-even if the full name is entered correctly. According to the requirements, the application should initiate the search/suggestions after the first three letters, even more so when the full name is provided.
+even if the full name is entered correctly. According to the requirements, the application should trigger the search/suggestions after the first three letters, especially when when the full name is provided.
 
 ## 👣 Steps to Reproduce
 1. Navigate to https://militaria.pl/.
