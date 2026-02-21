@@ -32,7 +32,7 @@ Everything related to this project is organized in the following documents:
 * 📄 **[Google Sheets: Live Test Suite](https://docs.google.com/spreadsheets/d/1_gszuUNTEtNfG3AQptmJbks0TZzhoaXkgLZSZ03MdS8/edit?gid=0#gid=0)** – The "master" file with interactive Test Cases and execution status.
 * 📋 **[Test Plan (Markdown Version)](./MILITARIA_PROJECT/TESTS/TEST_PLAN_MILITARIA.md)** – Detailed strategy, scope, and environment details.
 * 📊 **[Test Summary Report](./MILITARIA_PROJECT/TESTS/MILIATARIA_TESTS_SUMMARY.md)** – High-level execution results and quality assessment.
-* 🐞 **[Bug Reports Portfolio](./MILITARIA_PROJECT/TESTS/BUG_REPORTS.md)** – (Optional: if you have a separate file for JIRA screenshots).
+* 🐞 **[Bug Reports Portfolio](./MILITARIA_PROJECT/TESTS/BUGS)** – (Optional: if you have a separate file for JIRA screenshots).
 
 **Key Activities:**
 * Designed **5 Test Scenarios** and **30+ Test Cases** covering Happy Paths, Edge Cases, and Social Logins.
