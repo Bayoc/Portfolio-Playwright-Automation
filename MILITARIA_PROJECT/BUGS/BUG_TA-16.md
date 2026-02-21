@@ -33,7 +33,7 @@ even if the full name is entered correctly. According to the requirements, the a
 
 <details>
   <summary>Full Size screenshot of bug</summary>
-  #### Screenshot 2: Full size screenshot
+  #### Screenshot 2: Full size bug view
   <img width="1466" height="582" alt="image" src="https://github.com/user-attachments/assets/85bd7115-1b7e-4f7a-a99c-420839bc3a90" />
 </details>
 
