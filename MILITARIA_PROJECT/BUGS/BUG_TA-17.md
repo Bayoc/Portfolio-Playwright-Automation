@@ -1,39 +1,45 @@
-# 🐞 Bug Report: [Search results fail to display the list of footwear products containing the letters "be" when searching for "Buty be".]
+# 🐞 Bug Report: [Search results fail to display products containing matching strings when searching for "Buty be" or "Buty ben".]
 
 | Jira ID | Priority | Status | Environment |
 | :--- | :--- | :--- | :--- |
-| **TA-17** | 🔴 Low | Open | Chrome / Windows 11 |
+| **TA-17** | 🔴 Medium | Open | Chrome / Windows 11 |
 
 ---
 
 ## 📝 Description
-The search engine fails to display the list of products containing the letters "Buty be" in the product name when searching for "Buty be".
+The search engine fails to return relevant footwear products when a multi-word query is entered (e.g., "Buty be", "Buty ben"). Even though the products contain these character strings in their names, they do not appear in the search results or the suggestion drop-down.
 
 ## 👣 Steps to Reproduce
 1. Navigate to https://militaria.pl/.
 2. In the search bar, type the phrase: "Buty be" and press enter.
 3. Observe the list of results.
+4. In the search bar, type the phrase: "Buty ben" and press enter.
+5. Observe the list of results.
 
-**Expected Result** - The search results page should display footwear ("Buty") containing the letters "be"
+**Expected Result** - The search engine should return a list of relevant footwear products that contain the entered strings (e.g., "be", "ben") in their names, regardless of whether a single word or a multi-word query (e.g., "Buty be", "Buty ben") is used. The suggestions drop-down and the search results page should be populated with matching items.
 
-**Actual Result** - The search results page does not display any footwear ("Buty") containing the letters "be".
+**Actual Result** - The search results page and the suggestion drop-down fail to display any products containing the letters "be" or "ben" when searching for multi-word phrases like "Buty be" and "Buty ben". The system treats these queries as having no matches, even though products with these names exist in the database.
 
 ---
 
 ## 🖼️ Evidence
 
-### Bug reported in Jira
+### Jira bug details
 <details>
-  <summary>Click here to check out raports in Jira</summary>
-  
-  #### Screenshot 1: Jira bug details
-  <img width="1258" height="771" alt="image" src="https://github.com/user-attachments/assets/97bdfcfb-8981-4f3a-b415-5fee4745cf43" />
+  <summary>Show screenshot 1</summary>
+  <img width="1255" height="778" alt="image" src="https://github.com/user-attachments/assets/1edff1a6-c6ee-4280-9f1b-0694de13b9a3" />
   </details>
 
+### Search result for "Buty be"
 <details>
-  <summary>Full Size screenshot of bug</summary>
-  #### Screenshot 2: Full size bug view
-  <img width="1586" height="930" alt="image" src="https://github.com/user-attachments/assets/bef90217-a1ae-46bd-b2d8-1a9edb603a60" />
+  <summary>Show screenshot 2</summary>
+  <img width="1586" height="930" alt="image" src="https://github.com/user-attachments/assets/4fd38d0c-69c1-4086-95e9-1ca120bc44e6" />
+</details>
+
+### Search result for "Buty ben"
+<details>
+  <summary>Show screenshot 3</summary>
+  <img width="1730" height="972" alt="image" src="https://github.com/user-attachments/assets/3e56d241-407f-4e2c-aee4-8cb27f6e698f" />
 </details>
 
 ---
