@@ -61,5 +61,11 @@ A specialized API testing suite designed to verify CRUD (Create, Read, Update, D
     * **Status Code Validation:** Ensuring 200 OK for success and 401/403 for unauthorized access attempts.
     * **Schema Verification:** Validating the structure of JSON objects.
 * **Authentication Flow:** Implemented automated token generation (`/auth`) to allow secure updates and deletions.
+* 
+### 🛠️ How to run the API tests:
+1.  **Import:** In Postman, click "Import" and select both `.json` files (Collection and Environment).
+2.  **Environment:** Select the `Restful-Booker-Env` from the environment dropdown in the top-right corner.
+3.  **Run:** Open the **Collection Runner**, select the collection, and click "Run Restful-Booker". 
+4.  **Note:** The suite is fully automated – it generates its own Auth Token and passes the `bookingid` between requests.
 
 ---
