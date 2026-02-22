@@ -51,8 +51,8 @@ A specialized API testing suite designed to verify CRUD (Create, Read, Update, D
 * **Tools:** Postman, JavaScript (Postman Sandbox), JSON.
 
 #### 📁 API Documentation & Resources
-* 📁 **[Postman Collection (JSON Export)](./MILITARIA_PROJECT/API/Restful_Booker_Collection.json)** – Import this into Postman to see the full test suite.
-* 📋 **[API Test Plan](./MILITARIA_PROJECT/API/API_TEST_PLAN.md)** – Documentation of endpoints, test data, and expected status codes.
+* 📁 **[Postman Collection (JSON Export)](./API/Restful_Booker_Collection.json)** – Import this into Postman to see the full test suite.
+* 📋 **[API Test Plan](./API/API_TEST_PLAN.md)** – Documentation of endpoints, test data, and expected status codes.
 
 #### ⚙️ Technical Highlights
 * **Dynamic Request Chaining:** Implemented an automated flow where the `bookingid` is extracted from a `POST` response and passed as a variable `{{bookingid}}` to subsequent `GET`, `PUT`, and `DELETE` requests.
