@@ -17,6 +17,12 @@ I am an aspiring Manual QA Tester with a strong focus on ensuring software quali
 * **Version Control:** Git, GitHub.
 * **Test Automation:** Playwright, Java (Core).
 
+## 🗄️ Database Testing (SQL)
+Practical application of SQL for data validation and backend testing.
+
+* 📂 **[Business Scenarios (Militaria.pl simulation)](./SQL/MILITARIA_SQL.md)** – focused on user lifecycle, GDPR, and data persistence.
+* 📂 **[Advanced Queries (Sakila DB Study)](./SQL/SAKILA_STUDY.md)** – focused on complex JOINs, aggregation, and relational logic.
+
 ---
 
 ## 🚀 Projects
