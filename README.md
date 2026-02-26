@@ -15,7 +15,7 @@ I am an aspiring Manual QA Tester with a strong focus on ensuring software quali
 ### **Technical & Automation**
 * **Databases:** SQL (Basic queries, data verification).
 * **Version Control:** Git, GitHub.
-* **Test Automation:** Playwright, Java (Core).
+* **Test Automation:** Playwright, TypeScript.
 
 ## 🗄️ Database Testing (SQL)
 Practical application of SQL for data validation and backend testing.
