@@ -1,0 +1,39 @@
+import { test, expect } from '@playwright/test';
+import { CartPage } from '../pages/ae.cart_page';
+import { ProductsPage } from '../pages/ae.products_page';
+
+test.describe.skip('Shopping Cart Functionality', () => {
+
+    test.beforeEach(async ({ page }) => {
+        const cartPage = new CartPage(page);
+        await cartPage.blockAds();
+        await cartPage.navigate('/products');
+        await cartPage.handleCookies();
+
+    });
+
+    test('Add two different products to cart and verify they are added', async ({ page }) => {
+        const productsPage = new ProductsPage(page);
+        const cartPage = new CartPage(page);
+
+        await productsPage.addToCartByIndex(0);
+        
+        await productsPage.addToCartByIndex(1);
+
+        await cartPage.navigate('/view_cart');
+
+        // Weryfikacja: powinny być 2 produkty w koszyku
+        await expect(cartPage.cartRows).toHaveCount(2);
+    });
+
+    test('Should remove product from cart and verify cart is empty', async ({ page }) => {
+        const cartPage = new CartPage(page);
+        await cartPage.navigate('/view_cart');
+        // 1. Sprawdź ile jest produktów na starcie
+        const initialCount = await cartPage.cartRows.count();
+        // 2. Usuń pierwszy produkt (index 0)
+        await cartPage.removeProduct(0);
+        // 3. Weryfikacja: poczekaj aż liczba wierszy spadnie o 1
+        await expect(cartPage.cartRows).toHaveCount(initialCount - 1);
+    });
+});
