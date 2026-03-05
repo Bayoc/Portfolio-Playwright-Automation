@@ -10,7 +10,7 @@ test.describe('Contact Form Functionality and static content', () => {
         await contactPage.blockAds();
 
     });
-
+    // Test 1
     test('Should submit contact form successfully', async ({ page }) => {
         const contactPage = new ContactPage(page);
         await contactPage.navigate('/contact_us');
@@ -19,12 +19,11 @@ test.describe('Contact Form Functionality and static content', () => {
         await contactPage.submitContactForm();
         await expect(page.locator('.status.alert.alert-success')).toBeVisible();
     });
-
+    // Test 2
     test('Verify Test Cases Page Visibility', async ({ page }) => {
         const testCasesPage = new TestCasesPage(page);
         await testCasesPage.navigate('/test_cases');
 
-        // Assertion 
         await expect(testCasesPage.testCasesHeading).toBeVisible();
         await expect(page).toHaveURL(/.*test_cases/);
     });

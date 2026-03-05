@@ -39,7 +39,7 @@ export class ProductsPage extends BasePage {
         await this.subscriptionButton.click();
     }
 
-    // Metoda do wybierania kategorii (np. Women > Dress)
+    
     async selectCategory(category: string, subCategory: string) {
         await this.page.click(`a[href="#${category}"]`);
         await this.page.click(`a:has-text("${subCategory}")`);

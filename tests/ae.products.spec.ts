@@ -7,7 +7,7 @@ test.describe('Products Catalog & Filtering', () => {
         const productsPage = new ProductsPage(page);
         await productsPage.blockAds();
     });
-
+    // Test 1
     test('Search product and verify results', async ({ page }) => {
         const productsPage = new ProductsPage(page);
         await productsPage.navigate('/products');
@@ -17,7 +17,7 @@ test.describe('Products Catalog & Filtering', () => {
             .toBeVisible();
         await expect(page.locator('.productinfo p')).toContainText('Blue Top');
     });
-
+    // Test 2
     test('Verify product categories and sub-categories', async ({ page }) => {
         const productsPage = new ProductsPage(page);
         await productsPage.navigate('/products');
@@ -27,7 +27,7 @@ test.describe('Products Catalog & Filtering', () => {
         await expect(productsPage.productHeading.filter({ hasText: /Women - Dress Products/i }))
             .toBeVisible();
     });
-
+    // Test 3
     test('Verify subscription in footer', async ({ page }) => {
         const productsPage = new ProductsPage(page);
         await productsPage.navigate('/');
@@ -36,7 +36,7 @@ test.describe('Products Catalog & Filtering', () => {
         await expect(productsPage.successSubscriptionMsg).toBeVisible();
         await expect(productsPage.successSubscriptionMsg).toHaveText('You have been successfully subscribed!');
     });
-
+    // Test 4
     test('Verify brands and their products', async ({ page }) => {
         const productsPage = new ProductsPage(page);
         await productsPage.navigate('/products');

@@ -1,4 +1,4 @@
-// pages/ae.register_page.ts
+
 import { type Locator, type Page, expect } from '@playwright/test';
 import { BasePage } from './ae.base_page';
 

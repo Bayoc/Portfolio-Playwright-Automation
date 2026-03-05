@@ -6,11 +6,11 @@ export class BasePage {
 
   constructor(page: Page) {
     this.page = page;
-    // Wspólny element dla wszystkich stron na starcie
+    
     this.consentButton = page.getByRole('button', { name: 'Consent' });
   }
 
-  // Wspólna metoda do wchodzenia na stronę z opcją zmiany URL
+  // Enter the main page via URL, with optional path
   async navigate(path: string = '') {
     await this.page.goto(`https://automationexercise.com${path}`, {
       waitUntil: 'domcontentloaded',
@@ -18,17 +18,17 @@ export class BasePage {
     await this.handleCookies();
   }
 
-  // Metoda obsługująca ciasteczka, jeśli się pojawią
+  // Method for handling cookies, if they appear
   async handleCookies() {
     const consentButton = this.page.getByRole('button', { name: 'Consent' });
     if (await this.consentButton.isVisible()) {
       await this.consentButton.click();
-      // Poczekaj aż przycisk zniknie, aby mieć pewność, że cookies zostały zaakceptowane
+      // Wait until the button disappears to ensure cookies have been accepted
       await expect(this.consentButton).not.toBeVisible();
     }
   }
 
-  // Metoda do blokowania śmieciowych skryptów (reklam)
+  // Method for blocking intrusive scripts (ads)
   async blockAds() {
     await this.page.context().route("**/*", (route) => {
       const url = route.request().url();
