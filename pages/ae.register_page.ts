@@ -13,7 +13,7 @@ export class RegisterPage extends BasePage {
         this.nameInput = page.locator('input[data-qa="signup-name"]');
         this.emailInput = page.locator('input[data-qa="signup-email"]');
         this.signupButton = page.locator('button[data-qa="signup-button"]');
-        this.errorMessage = page.locator('p[style="color: red;"]'); // Komunikat o istniejącym mailu
+        this.errorMessage = page.locator('p[style="color: red;"]'); 
     }
 
     async signup(name: string, email: string) {
