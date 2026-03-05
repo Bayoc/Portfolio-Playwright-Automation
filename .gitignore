@@ -10,3 +10,4 @@ playwright/.cache/
 tests/trash
 tests/screenshots
 extension/
+*.skip
