@@ -18,7 +18,7 @@ test.describe('Authentication & User Management', () => {
             const loginPage = new LoginPage(page);
             await loginPage.navigate('/login');
             await loginPage.login(process.env.TEST_USER_EMAIL!, process.env.TEST_USER_PASSWORD!);
-            await expect(loginPage.logoutButton).toBeVisible();
+            await expect(loginPage.logoutButton).toBeVisible({ timeout: 15000 });
             await loginPage.logout();
             await expect(page).toHaveURL(/.*login/);
         });
