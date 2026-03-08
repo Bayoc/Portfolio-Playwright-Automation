@@ -14,12 +14,10 @@ export class LoginPage extends BasePage {
         this.emailInput = page.locator('input[data-qa="login-email"]');
         this.passwordInput = page.locator('input[data-qa="login-password"]');
         this.loginButton = page.locator('button[data-qa="login-button"]');
-        this.errorMessage = page.locator('form[action="/login"] p');
+        
+        // There is no unique identifier for the error message, so we use a more specific locator to target the correct element
+        this.errorMessage = page.locator('form[action="/login"] p[style="color: red;"]');
         this.logoutButton = page.locator('a[href="/logout"]');
-    }
-
-    async goto() {
-        await this.navigate('/login');
     }
 
     async login(email: string, pass: string) {

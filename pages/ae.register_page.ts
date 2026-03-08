@@ -13,7 +13,9 @@ export class RegisterPage extends BasePage {
         this.nameInput = page.locator('input[data-qa="signup-name"]');
         this.emailInput = page.locator('input[data-qa="signup-email"]');
         this.signupButton = page.locator('button[data-qa="signup-button"]');
-        this.errorMessage = page.locator('p[style="color: red;"]'); 
+
+        // There is no unique identifier for the error message, so we use a more specific locator to target the correct element
+        this.errorMessage = page.locator('form[action="/signup"] p[style="color: red;"]');
     }
 
     async signup(name: string, email: string) {

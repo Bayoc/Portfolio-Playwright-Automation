@@ -12,7 +12,8 @@ export class BasePage {
 
   // Enter the main page via URL, with optional path
   async navigate(path: string = '') {
-    await this.page.goto(`https://automationexercise.com${path}`, {
+    await this.blockAds(); // Ensure ads are blocked before navigating
+    await this.page.goto(path, {
       waitUntil: 'domcontentloaded',
     });
     await this.handleCookies();
@@ -20,7 +21,6 @@ export class BasePage {
 
   // Method for handling cookies, if they appear
   async handleCookies() {
-    const consentButton = this.page.getByRole('button', { name: 'Consent' });
     if (await this.consentButton.isVisible()) {
       await this.consentButton.click();
       // Wait until the button disappears to ensure cookies have been accepted

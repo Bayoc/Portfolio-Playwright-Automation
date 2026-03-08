@@ -2,6 +2,21 @@ import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 dotenv.config();
 
+// Validate that required environment variables are set
+const requiredEnvVars = ['TEST_USER_EMAIL', 'TEST_USER_PASSWORD'] as const;
+
+for (const envVar of requiredEnvVars) {
+  if (!process.env[envVar]) {
+    throw new Error(`Missing required environment variable: ${envVar}`);
+  }
+}
+
+// Export as typed constants - you use this in tests instead of process.env
+export const ENV = {
+  email: process.env.TEST_USER_EMAIL as string,
+  password: process.env.TEST_USER_PASSWORD as string,
+};
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -28,7 +43,7 @@ export default defineConfig({
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
-    // baseURL: 'http://localhost:3000',
+    baseURL: 'https://automationexercise.com',
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
