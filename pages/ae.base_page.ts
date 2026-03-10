@@ -6,13 +6,20 @@ export class BasePage {
 
   constructor(page: Page) {
     this.page = page;
-    
+
     this.consentButton = page.getByRole('button', { name: 'Consent' });
   }
 
   // Enter the main page via URL, with optional path
   async navigate(path: string = '') {
-    await this.blockAds(); // Ensure ads are blocked before navigating
+
+    // Listen for page load and handle cookies if the consent button appears
+    this.page.on('load', async () => {
+      if (await this.consentButton.isVisible().catch(() => false)) {
+        await this.consentButton.click().catch(() => { });
+      }
+    });
+
     await this.page.goto(path, {
       waitUntil: 'domcontentloaded',
     });
@@ -32,7 +39,16 @@ export class BasePage {
   async blockAds() {
     await this.page.context().route("**/*", (route) => {
       const url = route.request().url();
-      if (url.includes("googleads") || url.includes("doubleclick") || url.includes("adservice") || url.includes("google-analytics")) {
+      if (
+        url.includes("googleads") ||
+        url.includes("doubleclick") ||
+        url.includes("adservice") ||
+        url.includes("google-analytics") ||
+        url.includes("googlesyndication") ||  
+        url.includes("adtng") ||
+        url.includes("popads") ||
+        url.includes("exoclick")
+      ) {
         route.abort();
       } else {
         route.continue();

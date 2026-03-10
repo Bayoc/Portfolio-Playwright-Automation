@@ -1,4 +1,4 @@
-import {type Locator, type Page, expect} from '@playwright/test';
+import {type Locator, type Page} from '@playwright/test';
 import {BasePage} from './ae.base_page';
 
 export class TestCasesPage extends BasePage {

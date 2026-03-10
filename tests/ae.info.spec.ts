@@ -5,11 +5,6 @@ import { TestCasesPage } from '../pages/ae.testscases_page';
 
 test.describe('Contact Form Functionality and static content', () => {
 
-    test.beforeEach(async ({ page }) => {
-        const contactPage = new ContactPage(page);
-        await contactPage.blockAds();
-
-    });
     
     test('Should submit contact form successfully', async ({ page }) => {
         const contactPage = new ContactPage(page);
@@ -17,7 +12,8 @@ test.describe('Contact Form Functionality and static content', () => {
         await expect(contactPage.contactHeading).toBeVisible();
         await contactPage.fillContactForm('John Doe', 'john.doe@example.com', 'Test Subject', 'This is a test message.');
         await contactPage.submitContactForm();
-        await expect(page.locator('.status.alert.alert-success')).toBeVisible();
+        await expect(contactPage.successMessage).toBeVisible();
+        await expect(contactPage.successMessage).toHaveText('Success! Your details have been submitted successfully.');
     });
     
     test('Verify Test Cases Page Visibility', async ({ page }) => {
@@ -26,6 +22,8 @@ test.describe('Contact Form Functionality and static content', () => {
 
         await expect(testCasesPage.testCasesHeading).toBeVisible();
         await expect(page).toHaveURL(/.*test_cases/);
+
+        
     });
 });
 

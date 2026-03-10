@@ -22,7 +22,7 @@ export class ContactPage extends BasePage {
         this.contactMessageInput = page.locator('textarea[data-qa="message"]');
         this.uploadInput = page.locator('input[type="file"]');
         this.submitButton = page.locator('input[data-qa="submit-button"]');
-        this.successMessage = page.locator('.alert-success');
+        this.successMessage = page.locator('.status.alert.alert-success');
     }
 
     async fillContactForm(name: string, email: string, subject: string, message: string) {
@@ -34,15 +34,12 @@ export class ContactPage extends BasePage {
 
     async submitContactForm() {
         this.page.once('dialog', dialog => dialog.accept());
-        await this.page.click('input[data-qa="submit-button"]');
+        await this.submitButton.click();
     }
 
-    async uploadFile(filePath: "D:\Nauka\!!!QA Tester\Pliki testowe\testfile.txt") {
+    /* async uploadFile(filePath: "D:\Nauka\!!!QA Tester\Pliki testowe\testfile.txt") {
         await this.uploadInput.setInputFiles(filePath);
     }
-
-    async verifySuccessMessage() {
-        await expect(this.successMessage).toHaveText('Success! Your details have been submitted successfully.');
-    }
+        */
 
 }

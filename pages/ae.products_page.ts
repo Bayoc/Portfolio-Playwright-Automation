@@ -1,6 +1,7 @@
 // pages/ae.products_page.ts
 import { type Locator, type Page, expect } from '@playwright/test';
 import { BasePage } from './ae.base_page';
+import { CartModal } from './ae.cart_modal';
 
 export class ProductsPage extends BasePage {
     readonly searchInput: Locator;
@@ -13,6 +14,7 @@ export class ProductsPage extends BasePage {
     readonly addProductToCart: Locator
     readonly productIndex: Locator;
     readonly cartModal: Locator;
+    readonly searchResults: Locator;
 
     constructor(page: Page) {
         super(page);
@@ -26,6 +28,7 @@ export class ProductsPage extends BasePage {
         this.addProductToCart = page.locator('.productinfo.text-center a').filter({ hasText: 'Add to cart' });
         this.productIndex = page.locator('.single-products');
         this.cartModal = page.locator('#cartModal');
+        this.searchResults = page.locator('.productinfo p');
 
     }
 
@@ -39,7 +42,7 @@ export class ProductsPage extends BasePage {
         await this.subscriptionButton.click();
     }
 
-    
+
     async selectCategory(category: string, subCategory: string) {
         await this.page.click(`a[href="#${category}"]`);
         await this.page.click(`a:has-text("${subCategory}")`);
@@ -49,18 +52,28 @@ export class ProductsPage extends BasePage {
         await this.page.click(`.brands-name a:has-text("${brandName}")`);
     }
 
-    async addToCartByIndex(index: number) {
-        const product = this.productIndex.nth(index);
-
-        await product.hover();
-        const addToCartBtn = product.locator('.product-overlay .add-to-cart').click();
-
+    async addToCartByIndex(index: number, closeModal: boolean = true) {
+    const product = this.productIndex.nth(index);
+    
+    await product.scrollIntoViewIfNeeded();
+    await this.page.waitForLoadState('networkidle');
+    
+    // Kliknij przycisk bezpośrednio przez JavaScript - omija wszystkie problemy z overlayem
+    await this.page.evaluate((idx) => {
+        const products = document.querySelectorAll('.single-products');
+        const button = products[idx]?.querySelector('a.add-to-cart') as HTMLElement;
+        if (button) button.click();
+    }, index);
+    
+    const cartModal = new CartModal(this.page);
+    
+    if (closeModal) {
+        await cartModal.waitForModal();
+        await cartModal.continueShopping();
         await this.handleCookies();
- 
-        const continueButton = this.page.getByRole('button', { name: /Continue Shopping/i });
-        await continueButton.click();
-
-        await expect(this.page.locator('#cartModal')).not.toBeVisible();
-
+        await expect(this.productIndex.first()).toBeVisible();
+    } else {
+        await cartModal.waitForModal();
     }
+}
 }
