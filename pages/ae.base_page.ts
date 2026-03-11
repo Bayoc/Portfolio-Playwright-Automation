@@ -4,6 +4,17 @@ export class BasePage {
   readonly page: Page;
   readonly consentButton: Locator;
 
+  private readonly blockedDomains: string[] = [
+    'googleads',
+    'doubleclick',
+    'adservice',
+    'google-analytics',
+    'googlesyndication',
+    'adtng',
+    'popads',
+    'exoclick'
+  ];
+
   constructor(page: Page) {
     this.page = page;
 
@@ -39,16 +50,7 @@ export class BasePage {
   async blockAds() {
     await this.page.context().route("**/*", (route) => {
       const url = route.request().url();
-      if (
-        url.includes("googleads") ||
-        url.includes("doubleclick") ||
-        url.includes("adservice") ||
-        url.includes("google-analytics") ||
-        url.includes("googlesyndication") ||  
-        url.includes("adtng") ||
-        url.includes("popads") ||
-        url.includes("exoclick")
-      ) {
+      if (this.blockedDomains.some(domain => url.includes(domain))) {
         route.abort();
       } else {
         route.continue();

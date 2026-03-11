@@ -1,6 +1,6 @@
 import { type Locator, type Page, expect } from '@playwright/test';
 import { BasePage } from './ae.base_page';
-
+import { ContactFormData } from './types';
 
 export class ContactPage extends BasePage {
     readonly contactHeading: Locator;
@@ -25,11 +25,13 @@ export class ContactPage extends BasePage {
         this.successMessage = page.locator('.status.alert.alert-success');
     }
 
-    async fillContactForm(name: string, email: string, subject: string, message: string) {
-        await this.contactNameInput.fill(name);
-        await this.contactEmailInput.fill(email);
-        await this.contactSubjectInput.fill(subject);
-        await this.contactMessageInput.fill(message);
+    async fillContactForm(data: ContactFormData) {
+        await this.contactNameInput.fill(data.name);
+        await this.contactEmailInput.fill(data.email);
+        if (data.subject) {
+            await this.contactSubjectInput.fill(data.subject);
+        }
+        await this.contactMessageInput.fill(data.message);
     }
 
     async submitContactForm() {
