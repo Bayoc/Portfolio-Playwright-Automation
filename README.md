@@ -21,6 +21,18 @@ The project follows a clean, modular architecture:
 
 ---
 
+## 🧪 Test Coverage
+
+| Test Suite | Tests | Description |
+|------------|-------|-------------|
+| Authentication & User Management | 3 | Login (valid/invalid credentials), duplicate email registration |
+| Contact Form & Static Content | 2 | Contact form submission, Test Cases page visibility |
+| Products Catalog & Filtering | 5 | Product search, category/subcategory navigation, brand filtering, footer subscription |
+| Shopping Cart | 2 | Add multiple products, remove product, cart state verification |
+| **Total** | **12** | **Full E2E coverage across core user journeys** |
+
+---
+
 ## 🛡️ Security & CI/CD Implementation
 * **Security**: Sensitive data (login credentials) are managed via Environment Variables (`.env`).
 * **CI/CD**: GitHub Secrets are used to securely inject credentials into the pipeline for cloud execution.
