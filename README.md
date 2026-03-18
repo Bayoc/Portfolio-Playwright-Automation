@@ -39,30 +39,4 @@ The project follows a clean, modular architecture:
 * **Reporting**: Test reports are automatically generated and uploaded as GitHub Artifacts after each run.
 
 ---
-
-## 🛠️ How to run it locally
-
-1. **Clone the repository:**
-   git clone https://github.com/Bayoc/Playwright-Automation.git
-
-2. **Install dependencies:**
-   npm install
-
-3. **Configure Environment Variables:**
-   Create a .env file in the root directory:
-   
-   TEST_USER_EMAIL="your_email@example.com"
-   TEST_USER_PASSWORD="your_password"
-
-5. **Run tests:**
-   * Run all tests in headless mode
-   npx playwright test
-
-   * Run tests with a visible browser (headed)
-   npx playwright test --headed
-
-   * Open the HTML report after execution
-   npx playwright show-report
-
----
 *Developed by Bartłomiej Jabłonowski*
